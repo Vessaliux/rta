@@ -8,7 +8,7 @@ interface Props {
     back: React.ReactNode;
 }
 
-const FlipCard = ({ front, back }: Props) => {
+const FlipCard = ({ front, back, ...props }: Props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
@@ -19,7 +19,8 @@ const FlipCard = ({ front, back }: Props) => {
             }}
             onMouseLeave={() => {
                 setIsFlipped(false);
-            }}>
+            }}
+            {...props}>
             <div
                 className={clsx(
                     'text-center transition-all [backface-visibility:hidden]',

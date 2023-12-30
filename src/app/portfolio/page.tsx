@@ -6,8 +6,8 @@ import Carousel from './carousel';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Services | RTA',
-    description: 'Services | RTA',
+    title: 'Portfolio | RTA',
+    description: 'Portfolio | RTA',
 };
 
 const Portfolio = () => {
