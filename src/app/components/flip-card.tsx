@@ -6,18 +6,25 @@ import clsx from 'clsx';
 interface Props {
     front: React.ReactNode;
     back: React.ReactNode;
+    useFlip?: boolean;
 }
 
-const FlipCard = ({ front, back, ...props }: Props) => {
+const FlipCard = ({ front, back, useFlip = true, ...props }: Props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
         <div
             className="flex justify-center items-center relative px-4 py-6 bg-white border border-solid border-[rgba(0,0,0,0.1)] rounded-sm text-center"
             onMouseEnter={() => {
+                if (!useFlip) {
+                    return;
+                }
                 setIsFlipped(true);
             }}
             onMouseLeave={() => {
+                if (!useFlip) {
+                    return;
+                }
                 setIsFlipped(false);
             }}
             {...props}>

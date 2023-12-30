@@ -3,7 +3,21 @@ import 'server-only';
 import clsx from 'clsx';
 import Image from 'next/image';
 import FlipCard from '@/app/components/flip-card';
+import imgDefault from '@/images/crew_default.png';
+import imgRafael from '@/images/crew_Rafael Bonifacio Jr.png';
+import imgJoshua from '@/images/crew_Joshua.png';
+import imgDavid from '@/images/crew_David Castillo.png';
+import imgRogel from '@/images/crew_Rogel Venturanza.png';
+import imgVincente from '@/images/crew_Vicente Estopel.png';
+import imgReynaldo from '@/images/crew_Reynaldo Flores.png';
+import imgRoberto from '@/images/crew_Roberto Del Rosario.png';
+import imgNeil from '@/images/crew_Neil Buenaflor.png';
+import imgCarlo from '@/images/crew_Carlo Pujeda.png';
+import imgSuzanne from '@/images/crew_Suzanne Sanares.png';
+import imgYukari from '@/images/crew_Yukari Iwama.png';
+import imgJoshuaSasotona from '@/images/crew_Joshua Sasotona.png';
 import type { Metadata } from 'next';
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export const metadata: Metadata = {
     title: 'Crew | RTA',
@@ -11,36 +25,51 @@ export const metadata: Metadata = {
 };
 
 type CrewData = {
-    src: string;
+    src: StaticImport;
     title: string;
-    name?: string;
+    name: string;
 };
 const CREW_DATA: CrewData[] = [
     {
-        src: 'Rafael Bonifacio Jr',
-        title: 'FOUNDER & MANAGING DIRECTOR',
+        src: imgRafael,
         name: 'Rafael Bonifacio Jr.',
+        title: 'FOUNDER & MANAGING DIRECTOR',
     },
-    { src: 'Joshua', title: 'CO-FOUNDER & ART DIRECTOR', name: 'Joshua Jang Min Sik' },
-    { src: 'David Castillo', title: 'SENIOR ANIMATOR' },
-    { src: 'Rogel Venturanza', title: 'SENIOR ANIMATOR' },
-    { src: 'Vicente Estopel', title: 'SENIOR ANIMATOR' },
-    { src: 'Reynaldo Flores', title: 'SENIOR ANIMATOR' },
-    { src: 'Roberto Del Rosario', title: 'SENIOR ANIMATOR' },
-    { src: 'Neil Buenaflor', title: 'SENIOR ANIMATOR' },
-    { src: 'default', title: 'PRODUCER & PROJECT MANAGER', name: 'Ace Valenzuela' },
-    { src: 'Carlo Pujeda', title: 'LEAD BACKGROUND ARTIST' },
-    { src: 'default', title: 'BACKGROUND & LAYOUT ARTIST', name: 'Paulyn Prudenciado' },
-    { src: 'default', title: 'LEAD DIGITAL ARTIST', name: 'Lovely Prudenciado' },
-    { src: 'Suzanne Sanares', title: 'DIGITAL ARTIST' },
-    { src: 'Yukari Iwama', title: 'DIGITAL ARTIST' },
-    { src: 'Joshua Sasotona', title: 'DRONE PILOT, FILM & POST PRODUCTIONS' },
+    {
+        src: imgJoshua,
+        name: 'Joshua Jang Min Sik',
+        title: 'CO-FOUNDER & ART DIRECTOR',
+    },
+    { src: imgDavid, name: 'David Castillo', title: 'SENIOR ANIMATOR' },
+    { src: imgRogel, name: 'Rogel Venturanza', title: 'SENIOR ANIMATOR' },
+    { src: imgVincente, name: 'Vicente Estopel', title: 'SENIOR ANIMATOR' },
+    { src: imgReynaldo, name: 'Reynaldo Flores', title: 'SENIOR ANIMATOR' },
+    { src: imgRoberto, name: 'Roberto Del Rosario', title: 'SENIOR ANIMATOR' },
+    { src: imgNeil, name: 'Neil Buenaflor', title: 'SENIOR ANIMATOR' },
+    { src: imgDefault, name: 'Ace Valenzuela', title: 'PRODUCER & PROJECT MANAGER' },
+    { src: imgCarlo, name: 'Carlo Pujeda', title: 'LEAD BACKGROUND ARTIST' },
+    { src: imgDefault, name: 'Paulyn Prudenciado', title: 'BACKGROUND & LAYOUT ARTIST' },
+    { src: imgDefault, name: 'Lovely Prudenciado', title: 'LEAD DIGITAL ARTIST' },
+    { src: imgSuzanne, name: 'Suzanne Sanares', title: 'DIGITAL ARTIST' },
+    { src: imgYukari, name: 'Yukari Iwama', title: 'DIGITAL ARTIST' },
+    {
+        src: imgJoshuaSasotona,
+        name: 'Joshua Sasotona',
+        title: 'DRONE PILOT, FILM & POST PRODUCTIONS',
+    },
 ];
 
-const CardFront = ({ src, name, title }: { src: string; name: string; title: string }) => {
+const CardFront = ({ src, name, title }: { src: StaticImport; name: string; title: string }) => {
     return (
         <div className="flex flex-col gap-2 justify-center items-center">
-            <Image className="rounded-full" src={src} alt="" width={300} height={300} priority />
+            <Image
+                className="rounded-full"
+                src={src}
+                placeholder="blur"
+                alt=""
+                width={300}
+                height={300}
+            />
             <p className="font-semibold text-body">{name}</p>
             <p className="font-semibold text-body-light text-xs text-balance">{title}</p>
         </div>
@@ -72,12 +101,9 @@ const Crew = () => {
                         {CREW_DATA.map((crew, index) => (
                             <FlipCard
                                 key={index}
+                                useFlip={false}
                                 front={
-                                    <CardFront
-                                        src={`/crew_${crew.src}.png`}
-                                        name={crew.name ?? crew.src}
-                                        title={crew.title}
-                                    />
+                                    <CardFront src={crew.src} name={crew.name} title={crew.title} />
                                 }
                                 back={
                                     <CardBack>
