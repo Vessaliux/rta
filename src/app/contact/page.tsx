@@ -11,11 +11,7 @@ export const metadata: Metadata = {
 const Contact = () => {
     return (
         <>
-            <div
-                className={clsx(
-                    'bg-[url(/banner_contact.jpg)] bg-[0_100%] bg-cover',
-                    'py-11 sm:py-20'
-                )}>
+            <div className={clsx('bg-[theme(colors.body-light)]', 'py-11 sm:py-20')}>
                 <h1 className="font-libre-franklin font-semibold text-white text-center">
                     CONTACT US
                 </h1>

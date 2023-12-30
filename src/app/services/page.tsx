@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const CardFront = ({ src, title }: { src: StaticImageData; title: string }) => {
     return (
         <div className="flex flex-col gap-6 justify-center items-center">
-            <Image className="w-3/4 rounded-full" src={src} alt="" />
+            <Image className="w-3/4 rounded-full" src={src} placeholder="blur" alt="" />
             <p className="font-semibold text-body">{title}</p>
         </div>
     );

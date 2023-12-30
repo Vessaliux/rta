@@ -3,6 +3,21 @@ import 'server-only';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Carousel from './carousel';
+import imgBG01 from '@/images/bg_1.png';
+import imgBG02 from '@/images/bg_2.png';
+import imgBG03 from '@/images/bg_3.png';
+import imgBG04 from '@/images/bg_4.png';
+import imgBG05 from '@/images/bg_5.png';
+import imgBG06 from '@/images/bg_6.png';
+import imgBG07 from '@/images/bg_7.png';
+import imgBG08 from '@/images/bg_8.png';
+import imgBG09 from '@/images/bg_9.png';
+import imgBG10 from '@/images/bg_10.png';
+import imgBG11 from '@/images/bg_11.png';
+import imgBG12 from '@/images/bg_12.png';
+import imgBG13 from '@/images/bg_13.png';
+import imgBG14 from '@/images/bg_14.png';
+import imgBG15 from '@/images/bg_15.png';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -27,14 +42,24 @@ const Portfolio = () => {
                     <div>
                         <h2 className="mb-3">BACKGROUNDS</h2>
                         <Carousel className="rounded shadow-md aspect-video">
-                            {Array.from(Array(10).keys()).map((index) => (
-                                <Image
-                                    key={index}
-                                    src={`/bg_${index + 1}.png`}
-                                    alt=""
-                                    width={1920}
-                                    height={1080}
-                                />
+                            {[
+                                imgBG01,
+                                imgBG02,
+                                imgBG03,
+                                imgBG04,
+                                imgBG05,
+                                imgBG06,
+                                imgBG07,
+                                imgBG08,
+                                imgBG09,
+                                imgBG10,
+                                imgBG11,
+                                imgBG12,
+                                imgBG13,
+                                imgBG14,
+                                imgBG15,
+                            ].map((src, index) => (
+                                <Image key={index} src={src} placeholder="blur" alt="" />
                             ))}
                         </Carousel>
                     </div>
