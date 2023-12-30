@@ -2,7 +2,7 @@ import 'server-only';
 
 import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
-import FlipCard from './flip-card';
+import FlipCard from '@/app/components/flip-card';
 import imgAnime from '@/images/services_anime.png';
 import imgBG from '@/images/services_bg.png';
 import imgCF from '@/images/services_cf.png';
