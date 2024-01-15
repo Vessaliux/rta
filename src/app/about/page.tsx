@@ -13,9 +13,7 @@ const About = () => {
     return (
         <>
             <div className={clsx('bg-[#6d2c2c]', 'py-11 sm:py-20')}>
-                <h1 className="font-libre-franklin font-semibold text-white text-center">
-                    SERVICES
-                </h1>
+                <h1 className="font-libre-franklin font-semibold text-white text-center">ABOUT</h1>
             </div>
             <div className="bg-[#f1f5f6] shadow-sm">
                 <div
