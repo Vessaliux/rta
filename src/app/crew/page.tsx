@@ -85,10 +85,8 @@ const CardBack = ({ children }: { children: React.ReactNode }) => {
 const Crew = () => {
     return (
         <>
-            <div className={clsx('bg-[#375a29]', 'py-11 sm:py-20')}>
-                <h1 className="font-libre-franklin font-semibold text-white text-center">
-                    SERVICES
-                </h1>
+            <div className={clsx('bg-[#885715]', 'py-11 sm:py-20')}>
+                <h1 className="font-libre-franklin font-semibold text-white text-center">CREW</h1>
             </div>
             <div className="bg-[#f4ffee] shadow-sm">
                 <div
